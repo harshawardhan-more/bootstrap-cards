@@ -1,0 +1,127 @@
+body {
+    font-family: "Roboto", sans-serif !important;
+  }
+  
+  .container {
+    margin-top: 20px;
+    display: grid; /* setting up grid layout */
+    gap: 20px; /* space between cards */
+    width: 80%; /* fixed width for the container */
+    margin-left: auto; /* center the container horizontally */
+    margin-right: auto; /* center the container horizontally */
+  }
+  
+  
+  
+  .card {
+    background-color: white;
+    width: 300px; /* fixed width for the cards */
+    height: auto;
+    align-items: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+    margin: auto; /* center the card within its grid cell */
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    background: #fff;
+  }
+  
+  .card::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#0dcaf0, rgb(255, 23, 131));
+    position: absolute;
+    left: 0;
+    top: -98%;
+    z-index: -2;
+    transition: all 0.4s cubic-bezier(0.77, -0.04, 0, 0.99);
+  }
+  
+  .card:hover::after {
+    top: 0;
+  }
+  
+  .card__img {
+    width: 100%;
+    height: 15rem;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+  }
+  
+  .card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card > h1 {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: #1f194c;
+    margin: 1em 0;
+    z-index: 3;
+  }
+  
+  .card > p {
+    color: #575a7b;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+    text-align: center;
+    z-index: 3;
+  }
+  
+  .card > a {
+    text-decoration: none;
+    background-color: #FFB534;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 3;
+  }
+  
+  .card:hover h1 {
+    color: #ffffff;
+  }
+  
+  .card:hover p {
+    color: #f0f0f0;
+  }
+  
+  .card:hover a {
+    background-color: white;
+    color: black;
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  @media (min-width: 1024px) {
+    /* For large screens: 2 rows and 3 columns */
+    .container {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      grid-template-rows: auto auto; /* 2 rows */
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* For medium screens: 3 rows and 2 columns */
+    .container {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      grid-template-rows: auto auto auto; /* 3 rows */
+    }
+  }
+  
+  @media (max-width: 767px) {
+    /* For small screens: single column */
+    .container {
+      grid-template-columns: 1fr; /* 1 column */
+      grid-template-rows: auto; /* auto rows */
+    }
+  }
